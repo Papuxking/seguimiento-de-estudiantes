@@ -5,36 +5,35 @@ import FormEstudiante from '../moleculas/FormEstudiante.jsx';
 import ListEstudiantes from '../moleculas/ListEstudiantes.jsx';
 import Buscar from '../moleculas/Buscar.jsx';
 import CardEstudiante from '../moleculas/CardEstudiante.jsx';
+import { AutoComplete } from "antd";
 
 export function HomeTemplate() {
   return (
-    <Container>
+    <Container style={{height:'auto'}}>
 
-      <Section1>
-        <CardEstudiante 
-        
-        />
-      
+      <Section1 style={{ display: 'flex', justifyContent: 'center', height:'fit-content'}}>
+        <CardEstudiante />
+
       </Section1>
 
 
       <Section2>
         <h1>Buscar Estudiantes</h1>
         <Buscar />
-        
+
       </Section2>
 
 
       <Section3 >
 
-        <h1>ESTUDIANTES</h1>
+        <h1>Agregar Estudiante</h1>
       </Section3>
 
 
-      <Section4>
-      <ListEstudiantes />
-      
-      {/* <CardDatosEmpresa 
+      <Section4 style={{height:'fit-content'}}>
+        <ListEstudiantes />
+
+        {/* <CardDatosEmpresa 
         titulo="Nombre" 
         valor="S/."
         img ={"https://img.freepik.com/foto-gratis/estilo-anime-celebrando-dia-san-valentin_23-2151258005.jpg"}
@@ -42,8 +41,8 @@ export function HomeTemplate() {
       </Section4>
 
 
-      <Section5>
-      <FormEstudiante />
+      <Section5 style={{height:'fit-content'}}>
+        <FormEstudiante />
 
       </Section5>
 
