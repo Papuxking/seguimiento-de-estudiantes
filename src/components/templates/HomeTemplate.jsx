@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { CardDatosEmpresa } from "../../index.js";
 import FormEstudiante from '../moleculas/FormEstudiante.jsx';
+import ListEstudiantes from '../moleculas/ListEstudiantes.jsx';
 
 export function HomeTemplate() {
   return (
     <Container>
 
       <Section1>
-      <FormEstudiante />
+      
       </Section1>
 
 
@@ -24,12 +25,13 @@ export function HomeTemplate() {
 
 
       <Section4>
-      <FormEstudiante />
-      <CardDatosEmpresa 
+      <ListEstudiantes />
+      
+      {/* <CardDatosEmpresa 
         titulo="Nombre" 
         valor="S/."
         img ={"https://img.freepik.com/foto-gratis/estilo-anime-celebrando-dia-san-valentin_23-2151258005.jpg"}
-        />
+        /> */}
       </Section4>
 
 

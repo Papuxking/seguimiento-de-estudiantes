@@ -101,8 +101,10 @@ const FormEstudiante = () => {
             </button>
           </Upload>
         </Form.Item>
-        <Form.Item >
-          <Button>Agregar</Button>
+        <Form.Item style={{paddingLeft: 30}}>
+          <Button
+
+          >Agregar</Button>
         </Form.Item>
 
 
