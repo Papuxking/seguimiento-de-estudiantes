@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { CardDatosEmpresa } from "../../index.js";
+import FormEstudiante from '../moleculas/FormEstudiante.jsx';
 
 export function HomeTemplate() {
   return (
     <Container>
 
       <Section1>
-
+      <FormEstudiante />
       </Section1>
 
 
@@ -18,10 +19,12 @@ export function HomeTemplate() {
 
       <Section3 >
 
+        <h1>ESTUDIANTES</h1>
       </Section3>
 
 
       <Section4>
+      <FormEstudiante />
       <CardDatosEmpresa 
         titulo="Nombre" 
         valor="S/."
@@ -31,6 +34,7 @@ export function HomeTemplate() {
 
 
       <Section5>
+      <FormEstudiante />
 
       </Section5>
 

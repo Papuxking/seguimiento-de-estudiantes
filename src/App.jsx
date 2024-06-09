@@ -1,12 +1,14 @@
 import styled, { ThemeProvider } from "styled-components";
 import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur } from "./index";
+import 'antd/dist/reset.css'; // Este es el nuevo estilo de importación de Ant Design
+
 
 import { createContext, useState } from "react";
 import { Device } from "./styles/breackpoints";
 
 export const ThemeContext = createContext(null);
 function App() {
-  const [themeuse, setTheme] = useState("dark");
+  const [themeuse, setTheme] = useState("light");
   const theme = themeuse === "light" ? "light" : "dark";
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
