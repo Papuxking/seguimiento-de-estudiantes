@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function CardEstudiante() {
   return (
     <Card style={{ width: '15rem', display: 'flex', alignItems: 'center'}}>
-      <Card.Img  style={{width:'10rem'}} variant="top" src="https://img.freepik.com/foto-gratis/estilo-anime-celebrando-dia-san-valentin_23-2151258005.jpg" />
+      <Card.Img  style={{width:'10rem', paddingTop:'22px'}} variant="top" src="https://img.freepik.com/foto-gratis/estilo-anime-celebrando-dia-san-valentin_23-2151258005.jpg" />
       <Card.Body style={{flex: 'initial'}}>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>

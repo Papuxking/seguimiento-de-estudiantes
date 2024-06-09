@@ -18,15 +18,15 @@ const normFile = (e) => {
   return e?.fileList;
 };
 const FormEstudiante = () => {
-  const [componentDisabled, setComponentDisabled] = useState(true);
+  const [componentDisabled, setComponentDisabled] = useState(false);
   return (
     <>
-      <Checkbox
+      {/* <Checkbox
         checked={componentDisabled}
         onChange={(e) => setComponentDisabled(e.target.checked)}
       >
         Form disabled
-      </Checkbox>
+      </Checkbox> */}
       <Form
         labelCol={{
           span: 7,
@@ -60,7 +60,7 @@ const FormEstudiante = () => {
         <Form.Item
           label={
             <span>
-              Fecha de<br />Aprobación
+              Fecha de<br />Aprobación<br/>_
             </span>
           }
         >
@@ -81,7 +81,7 @@ const FormEstudiante = () => {
         <Form.Item label="Observaciones">
           <TextArea rows={4} />
         </Form.Item>
-        <Form.Item label="Upload" valuePropName="fileList" getValueFromEvent={normFile}>
+        <Form.Item label="Foto" valuePropName="fileList" getValueFromEvent={normFile}>
           <Upload action="/upload.do" listType="picture-card">
             <button
               style={{

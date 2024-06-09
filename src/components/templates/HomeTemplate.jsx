@@ -24,9 +24,13 @@ export function HomeTemplate() {
       </Section2>
 
 
-      <Section3 >
+      <Section3 style={{height:'fit-content'}}>
 
         <h1>Agregar Estudiante</h1>
+
+        <FormEstudiante />
+
+
       </Section3>
 
 
@@ -41,10 +45,9 @@ export function HomeTemplate() {
       </Section4>
 
 
-      <Section5 style={{height:'fit-content'}}>
-        <FormEstudiante />
+      {/* <Section5 style={{height:'fit-content'}}>
 
-      </Section5>
+      </Section5> */}
 
 
     </Container>
