@@ -34,7 +34,7 @@ export const LinksArray = [
   {
     label: "Registros",
     icon: <v.iconocheck />,
-    to: "/kardex",
+    to: "/registros",
   },
   {
     label: "Informes",
