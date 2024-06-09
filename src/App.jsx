@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur } from "./index";
 import 'antd/dist/reset.css'; // Este es el nuevo estilo de importación de Ant Design
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import { createContext, useState } from "react";

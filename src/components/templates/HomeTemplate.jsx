@@ -3,17 +3,24 @@ import styled from "styled-components";
 import { CardDatosEmpresa } from "../../index.js";
 import FormEstudiante from '../moleculas/FormEstudiante.jsx';
 import ListEstudiantes from '../moleculas/ListEstudiantes.jsx';
+import Buscar from '../moleculas/Buscar.jsx';
+import CardEstudiante from '../moleculas/CardEstudiante.jsx';
 
 export function HomeTemplate() {
   return (
     <Container>
 
       <Section1>
+        <CardEstudiante 
+        
+        />
       
       </Section1>
 
 
       <Section2>
+        <h1>Buscar Estudiantes</h1>
+        <Buscar />
         
       </Section2>
 
