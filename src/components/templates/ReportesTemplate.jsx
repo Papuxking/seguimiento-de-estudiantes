@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import Estudiantes from "../../supabase/Estudiantes"
 export function ReportesTemplate() {
   return (
     <Container>
-      <h1>Reportes template</h1>
+      <div>
+      <Estudiantes />
+      </div>
       
     </Container>
   );
