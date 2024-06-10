@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Divider, List, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { supabase } from '../../supabase/supabaseClient';
-import CardEstudiante from './CardEstudiante';
 
-const ListEstudiantes = ({ onSelectStudent }) => {  // Recibir la función como prop
+const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -14,7 +13,7 @@ const ListEstudiantes = ({ onSelectStudent }) => {  // Recibir la función como 
       return;
     }
     setLoading(true);
-    
+
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
@@ -37,6 +36,13 @@ const ListEstudiantes = ({ onSelectStudent }) => {  // Recibir la función como 
   useEffect(() => {
     loadMoreData();
   }, []);
+
+  useEffect(() => {
+    if (filteredData) {
+      setData(filteredData);
+      setHasMore(false);
+    }
+  }, [filteredData]);
 
   return (
     <div

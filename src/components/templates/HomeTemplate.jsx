@@ -6,20 +6,38 @@ import ListEstudiantes from '../moleculas/ListEstudiantes.jsx';
 import Buscar from '../moleculas/Buscar.jsx';
 import CardEstudiante from '../moleculas/CardEstudiante.jsx';
 import { AutoComplete } from "antd";
+import { supabase } from '../../supabase/supabaseClient';
 
-export function HomeTemplate({data}) {
-  const [selectedStudent, setSelectedStudent] = useState(null);  // Estado para el estudiante seleccionado
+export function HomeTemplate({ data }) {
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
+
+  const handleSearch = async (value) => {
+    // Aquí puedes implementar la lógica de búsqueda, por ejemplo, hacer una consulta a Supabase
+    // Filtrar datos simulando una búsqueda local
+    const { data: estudiantes, error } = await supabase
+      .from('Estudiantes')
+      .select('*')
+      .ilike('nombre', `%${value}%`); // Busca coincidencias en el nombre
+    
+    if (error) {
+      console.error('Error buscando estudiantes:', error);
+      return;
+    }
+
+    setFilteredData(estudiantes);
+  };
 
   return (
     <Container style={{ height: '120vh' }}>
 
       <Section1 style={{ display: 'flex', justifyContent: 'center', height: 'fit-content' }}>
-        <CardEstudiante student={selectedStudent} />  {/* Pasar el estudiante seleccionado como prop */}
+        <CardEstudiante student={selectedStudent} />
       </Section1>
 
       <Section2>
         <h1>Buscar Estudiantes</h1>
-        <Buscar />
+        <Buscar onSearch={handleSearch} />
       </Section2>
 
       <Section3 style={{ height: 'fit-content' }}>
@@ -28,7 +46,7 @@ export function HomeTemplate({data}) {
       </Section3>
 
       <Section4 style={{ height: 'fit-content' }}>
-        <ListEstudiantes onSelectStudent={setSelectedStudent} />  {/* Pasar la función para actualizar el estudiante seleccionado */}
+        <ListEstudiantes onSelectStudent={setSelectedStudent} data={filteredData.length ? filteredData : null} />
       </Section4>
     </Container>
   );
