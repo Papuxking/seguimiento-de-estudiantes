@@ -7,7 +7,7 @@ import Buscar from '../moleculas/Buscar.jsx';
 import CardEstudiante from '../moleculas/CardEstudiante.jsx';
 import { AutoComplete } from "antd";
 
-export function HomeTemplate() {
+export function HomeTemplate({data}) {
   return (
     <Container style={{ height: '120vh' }}>
 
