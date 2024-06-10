@@ -1,7 +1,7 @@
 import {supabase} from "../index"
 import Swal from "sweetalert2"
 export async function InsertarEstudiante(p) {
-    const {error} = await supabase.rpc("insertarestudiante",p)
+    const {error} = await supabase.rpc("insertarEstudiante",p)
     if(error) {
         Swal.fire({
             icon: "error",
@@ -15,19 +15,19 @@ export async function InsertarEstudiante(p) {
 export async function MostrarEstudiante(p) {
  
     const { data } = await supabase
-      .from("estudiante")
+      .from("Estudiantes")
       .select()
-      .eq("id_empresa", p.id_empresa)
-      .order("id", { ascending: true });
+      .eq("id_estudiante", p.id_estudiante)
+      .order("nombre", { ascending: true });
     return data;
   
 }
 export async function EliminarEstudiante(p) {
  
     const { error } = await supabase
-      .from("estudiante")
+      .from("Estudiantes")
       .delete()
-      .eq("id", p.id);
+      .eq("id_estudiante", p.id);
     if (error) {
       alert("Error al eliminar", error.message);
     }
@@ -35,9 +35,9 @@ export async function EliminarEstudiante(p) {
 }
 export async function EditarEstudiante(p) {
     const { error } = await supabase
-      .from("estudiante")
+      .from("Estudiantes")
       .update(p)
-      .eq("id", p.id);
+      .eq("id_estudiante", p.id);
     if (error) {
       alert("Error al editar estudiante", error.message);
     }
@@ -45,9 +45,9 @@ export async function EditarEstudiante(p) {
 }
 export async function BuscarEstudiante(p) {
     const { data} = await supabase
-    .from("estudiante")
+    .from("Estudiantes")
     .select()
-    .eq("id_empresa", p.id_empresa)
-    .ilike("descripcion","%"+p.descripcion+"%")
+    .eq("nombre", p.nombre)
+    .ilike("apellido","%"+p.apellido+"%")
     return data;
 }
