@@ -58,7 +58,16 @@ const ListEstudiantes = () => {
                 title={<a href="https://ant.design">{item.name.last}</a>}
                 description={item.email}
               />
-              <div>Content</div>
+              <div>
+                 <a
+                  name=""
+                  id=""
+                  class="btn btn-primary"
+                  href="#"
+                  role="button"
+                  >Revisar</a
+                > 
+                </div>
             </List.Item>
           )}
         />
