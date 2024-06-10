@@ -9,9 +9,9 @@ import { AutoComplete } from "antd";
 
 export function HomeTemplate() {
   return (
-    <Container style={{height:'auto'}}>
+    <Container style={{ height: '120vh' }}>
 
-      <Section1 style={{ display: 'flex', justifyContent: 'center', height:'fit-content'}}>
+      <Section1 style={{ display: 'flex', justifyContent: 'center', height: 'fit-content' }}>
         <CardEstudiante />
 
       </Section1>
@@ -24,7 +24,7 @@ export function HomeTemplate() {
       </Section2>
 
 
-      <Section3 style={{height:'fit-content'}}>
+      <Section3 style={{ height: 'fit-content' }}>
 
         <h1>Agregar Estudiante</h1>
 
@@ -34,7 +34,7 @@ export function HomeTemplate() {
       </Section3>
 
 
-      <Section4 style={{height:'fit-content'}}>
+      <Section4 style={{ height: 'fit-content' }}>
         <ListEstudiantes />
 
         {/* <CardDatosEmpresa 
