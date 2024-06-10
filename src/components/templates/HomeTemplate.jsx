@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { CardDatosEmpresa } from "../../index.js";
 import FormEstudiante from '../moleculas/FormEstudiante.jsx';
@@ -8,48 +8,28 @@ import CardEstudiante from '../moleculas/CardEstudiante.jsx';
 import { AutoComplete } from "antd";
 
 export function HomeTemplate({data}) {
+  const [selectedStudent, setSelectedStudent] = useState(null);  // Estado para el estudiante seleccionado
+
   return (
     <Container style={{ height: '120vh' }}>
 
       <Section1 style={{ display: 'flex', justifyContent: 'center', height: 'fit-content' }}>
-        <CardEstudiante />
-
+        <CardEstudiante student={selectedStudent} />  {/* Pasar el estudiante seleccionado como prop */}
       </Section1>
-
 
       <Section2>
         <h1>Buscar Estudiantes</h1>
         <Buscar />
-
       </Section2>
 
-
       <Section3 style={{ height: 'fit-content' }}>
-
         <h1>Agregar Estudiante</h1>
-
         <FormEstudiante />
-
-
       </Section3>
 
-
       <Section4 style={{ height: 'fit-content' }}>
-        <ListEstudiantes />
-
-        {/* <CardDatosEmpresa 
-        titulo="Nombre" 
-        valor="S/."
-        img ={"https://img.freepik.com/foto-gratis/estilo-anime-celebrando-dia-san-valentin_23-2151258005.jpg"}
-        /> */}
+        <ListEstudiantes onSelectStudent={setSelectedStudent} />  {/* Pasar la función para actualizar el estudiante seleccionado */}
       </Section4>
-
-
-      {/* <Section5 style={{height:'fit-content'}}>
-
-      </Section5> */}
-
-
     </Container>
   );
 }

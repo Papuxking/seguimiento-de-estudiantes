@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Divider, List, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { supabase } from '../../supabase/supabaseClient';
+import CardEstudiante from './CardEstudiante';
 
-const ListEstudiantes = () => {
+const ListEstudiantes = ({ onSelectStudent }) => {  // Recibir la función como prop
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -67,7 +68,7 @@ const ListEstudiantes = () => {
             <List.Item key={item.id_estudiante}>
               <List.Item.Meta
                 avatar={<Avatar src={item.foto ? item.foto.url : 'https://via.placeholder.com/40'} />}
-                title={<a href="https://ant.design">{item.nombre} {item.apellido}</a>}
+                title={<a>{item.nombre} {item.apellido}</a>}
                 description={`${item.carrera} - ${item.tema}`}
               />
               <div>
@@ -77,6 +78,7 @@ const ListEstudiantes = () => {
                   className="btn btn-primary"
                   href="#"
                   role="button"
+                  onClick={() => onSelectStudent(item)}  // Llamar a la función pasada cuando se hace clic
                 >Revisar</a>
               </div>
             </List.Item>
