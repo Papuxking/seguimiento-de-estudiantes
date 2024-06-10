@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Divider, List, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { supabase } from '../../supabase/supabaseClient';
 
 const ListEstudiantes = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const loadMoreData = () => {
+  const [hasMore, setHasMore] = useState(true);
+
+  const loadMoreData = async () => {
     if (loading) {
       return;
     }
     setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
-      .then((res) => res.json())
-      .then((body) => {
-        setData([...data, ...body.results]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    
+    const { data: estudiantes, error } = await supabase
+      .from('Estudiantes')
+      .select('*')
+      .range(data.length, data.length + 9); // Paginación de 10 en 10
+
+    if (error) {
+      console.error('Error fetching estudiantes:', error);
+      setLoading(false);
+      return;
+    }
+
+    setData([...data, ...estudiantes]);
+    setLoading(false);
+
+    if (estudiantes.length < 10) {
+      setHasMore(false);
+    }
   };
 
   useEffect(() => {
@@ -38,7 +50,7 @@ const ListEstudiantes = () => {
       <InfiniteScroll
         dataLength={data.length}
         next={loadMoreData}
-        hasMore={data.length < 50}
+        hasMore={hasMore}
         loader={
           <Skeleton
             avatar
@@ -46,28 +58,27 @@ const ListEstudiantes = () => {
             active
           />
         }
-        endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
+        endMessage={<Divider plain>Es todo, no hay más 🤐</Divider>}
         scrollableTarget="scrollableDiv"
       >
         <List
           dataSource={data}
           renderItem={(item) => (
-            <List.Item key={item.email}>
+            <List.Item key={item.id_estudiante}>
               <List.Item.Meta
-                avatar={<Avatar src={item.picture.large} />}
-                title={<a href="https://ant.design">{item.name.last}</a>}
-                description={item.email}
+                avatar={<Avatar src={item.foto ? item.foto.url : 'https://via.placeholder.com/40'} />}
+                title={<a href="https://ant.design">{item.nombre} {item.apellido}</a>}
+                description={`${item.carrera} - ${item.tema}`}
               />
               <div>
-                 <a
+                <a
                   name=""
                   id=""
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   href="#"
                   role="button"
-                  >Revisar</a
-                > 
-                </div>
+                >Revisar</a>
+              </div>
             </List.Item>
           )}
         />

@@ -1,4 +1,4 @@
-import {supabase} from "../index"
+import { supabase } from '../supabase/supabaseClient';
 import Swal from "sweetalert2"
 export async function InsertarEstudiante(p) {
     const {error} = await supabase.rpc("insertarEstudiante",p)
