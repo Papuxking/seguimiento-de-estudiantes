@@ -17,7 +17,6 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
-      .eq('estado', 'Activo');  // Filtra estudiantes activos
       //.range(data.length, data.length + 9); 
 
     if (error) {
