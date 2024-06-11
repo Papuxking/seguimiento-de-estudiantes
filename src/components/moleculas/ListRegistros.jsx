@@ -16,7 +16,7 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
 
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
-      .select('*')
+      .select('*');
       //.range(data.length, data.length + 9); 
 
     if (error) {
@@ -43,6 +43,32 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
       setHasMore(false);
     }
   }, [filteredData]);
+
+  const getAlertClass = (estado) => {
+    switch (estado) {
+      case 'Activo':
+        return 'alert alert-success';
+      case 'Graduado':
+        return 'alert alert-warning';
+      case 'Retirado':
+        return 'alert alert-danger';
+      default:
+        return 'alert alert-secondary';
+    }
+  };
+
+  const getAlertText = (estado) => {
+    switch (estado) {
+      case 'Activo':
+        return 'Activo';
+      case 'Graduado':
+        return 'Graduado';
+      case 'Retirado':
+        return 'Retirado';
+      default:
+        return 'Desconocido';
+    }
+  };
 
   return (
     <div
@@ -77,6 +103,11 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
                 title={<a>{item.nombre} {item.apellido}</a>}
                 description={`${item.carrera} - ${item.tema}`}
               />
+              <div style={{ paddingRight: '10px' }}>
+                <div className={getAlertClass(item.estado)} role="alert">
+                  <strong>{getAlertText(item.estado)}</strong>
+                </div>
+              </div>
               <div>
                 <a
                   name=""
