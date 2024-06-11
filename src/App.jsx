@@ -4,22 +4,29 @@ import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur } from 
 import { createContext, useState } from "react";
 import { Device } from "./styles/breackpoints";
 
+
 export const ThemeContext = createContext(null);
 function App() {
+
+
+
+
   const [themeuse, setTheme] = useState("dark");
   const theme = themeuse === "light" ? "light" : "dark";
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
+
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
             <Container className={sidebarOpen ? "active" : ""}>
               <section className="ContentSidebar">
-                <Sidebar state={sidebarOpen} setState={()=>setSidebarOpen(!sidebarOpen)}/>
+                <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
               </section>
-              <section className="ContentMenuambur"><MenuHambur/></section>
+              <section className="ContentMenuambur"><MenuHambur /></section>
+            
               <section className="ContentRoutes">
                 <MyRoutes />
               </section>
