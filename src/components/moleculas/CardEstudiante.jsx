@@ -19,7 +19,7 @@ function CardEstudiante({ student }) {  // Recibir el estudiante como prop
         <ListGroup.Item>Tema: {student.tema}</ListGroup.Item>
         <ListGroup.Item>Fecha de aprobación: {student.fechaAprobacion}</ListGroup.Item>
         <ListGroup.Item>Estado: {student.estado}</ListGroup.Item>
-        <ListGroup.Item>Fecha de aprobación: {student.fechaAprobacion}</ListGroup.Item>
+        {/* <ListGroup.Item>Fecha de aprobación: {student.fechaAprobacion}</ListGroup.Item> */}
         <ListGroup.Item>Observaciones: {student.observacion}</ListGroup.Item>
 
 
