@@ -4,8 +4,9 @@ import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import carrito from "../../assets/carrito.svg";
+import tesislogo from "../../assets/tesislogo.png";
 import logo from "../../assets/inventarioslogo.png";
+import educacionlogo from "../../assets/educacionlogo.png";
 import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
 export function LoginTemplate() {
@@ -35,11 +36,11 @@ export function LoginTemplate() {
   return (
     <Container >
       <div className="contentLogo">
-        <img src={logo}></img>
-        <span>StockPRO</span>
+        <img src={educacionlogo}></img>
+        <span>Tutores de tesis</span>
       </div>
       <div className="bannerlateral">
-        <img src={carrito}></img>
+        <img src={tesislogo}></img>
       </div>
 
       <div className="contentCard">
@@ -47,7 +48,7 @@ export function LoginTemplate() {
        {
         state && <RegistrarAdmin setState={()=>setState(!state)}/>
        }
-          <Titulo>StockPRO</Titulo>
+          <Titulo>Tutores de Tesis</Titulo>
           {stateInicio && (
             <TextoStateInicio>datos incorrectos</TextoStateInicio>
           )}
@@ -56,7 +57,7 @@ export function LoginTemplate() {
             Puedes crear una cuenta nueva ó <br></br>solicitar a tu empleador
             una. <MdOutlineInfo />
           </span>
-          <p className="frase">Controla tu inventario.</p>
+          <p className="frase">Sistema de seguimiento de tesis.</p>
           <form onSubmit={handleSubmit(iniciar)}>
             <InputText icono={<v.iconoemail />}>
               <input
@@ -83,7 +84,7 @@ export function LoginTemplate() {
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar" bgcolor="#fc6b32" />
+              <Btnsave titulo="Iniciar" bgcolor="#eb2b2b" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -132,7 +133,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fc6b32;
+    background-color: #eb2b2b;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -181,7 +182,7 @@ const Container = styled.div`
       }
     }
     .frase {
-      color: #fc6c32;
+      color: #d52222;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 30px;

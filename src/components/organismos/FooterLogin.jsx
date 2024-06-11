@@ -4,19 +4,18 @@ export function FooterLogin() {
   return (
     <Container>
       <section className="lock">
-        <GiPadlock />
+        
         <span>
-          Esta es una página segura de codigo369. Si tienes dudas sobre la
-          autenticidad de la web, comunícate con
-          <br /> nosotros al 311-9898 o a través de nuestros medios digitales.
+          
+          <br /> 
         </span>
       </section>
       <section className="derechos">
-        <span>StockPRO S.A - RUC: 20100047218</span>
+        <span></span>
         <div className="separador"></div>
-        <span>Todos los derechos reservados</span>
+        <span></span>
         <div className="separador"></div>
-        <span>© 2023 codigo369.com</span>
+        <span></span>
       </section>
     </Container>
   );
