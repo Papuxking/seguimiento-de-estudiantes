@@ -16,7 +16,7 @@ function CardEstudiante({ student, onDeleteSuccess }) {
       const { data, error } = await supabase
         .from('Estudiantes')
         .delete()
-        .eq('id_estudiante', student.id_estudiante); 
+        .eq('id_estudiante', student.id_estudiante);
       if (error) throw error;
       console.log('Estudiante eliminado correctamente');
       onDeleteSuccess();
@@ -29,7 +29,7 @@ function CardEstudiante({ student, onDeleteSuccess }) {
     setEditMode(true);
     setEditedStudent({
       ...student,
-      fechaAprobacion: new Date(student.fechaAprobacion).toISOString().substr(0, 10), // Formatea la fecha si es necesario
+      fechaAprobacion: new Date(student.fechaAprobacion).toISOString().substr(0, 10),
     });
   };
 
@@ -56,8 +56,8 @@ function CardEstudiante({ student, onDeleteSuccess }) {
   };
 
   return (
-    <Card style={{ width: '15rem', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <Card.Body style={{flex: 'initial'}}>
+    <Card style={{ width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Card.Body style={{ flex: 'initial' }}>
         <Card.Title>{student.nombre} {student.apellido}</Card.Title>
         <Card.Text>
           {student.carrera}
@@ -69,7 +69,6 @@ function CardEstudiante({ student, onDeleteSuccess }) {
         <ListGroup.Item>Estado: {student.estado}</ListGroup.Item>
         <ListGroup.Item>Observaciones: {student.observacion}</ListGroup.Item>
       </ListGroup>
-      
       <Card.Body>
         {!editMode && (
           <input
@@ -79,40 +78,70 @@ function CardEstudiante({ student, onDeleteSuccess }) {
             onClick={handleEditarEstudiante}
           />
         )}
-        <a style={{paddingLeft:'30px'}}></a>
+        <a style={{ paddingLeft: '30px' }}></a>
         <input
           className="btn btn-danger"
           type="button"
           value="Eliminar"
           onClick={handleEliminarEstudiante}
         />
-
-{editMode && (
-        <Card.Body style={{flex: 'initial'}}>
-          <input
-            type="text"
-            name="nombre"
-            value={editedStudent.nombre}
-            onChange={handleInputChange}
-          />{' '}
-          <input
-            type="text"
-            name="apellido"
-            value={editedStudent.apellido}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="carrera"
-            value={editedStudent.carrera}
-            onChange={handleInputChange}
-          />
-          {/* Agrega el resto de campos de edición según sea necesario */}
-          <button className="btn btn-success" onClick={handleGuardarCambios}>
-            Guardar
-          </button>
-        </Card.Body>
-      )}
+        {editMode && (
+          <Card.Body style={{ flex: 'initial' }}>
+            <input
+              type="text"
+              name="nombre"
+              value={editedStudent.nombre}
+              onChange={handleInputChange}
+              placeholder="Nombre"
+            />{' '}
+            <input
+              type="text"
+              name="apellido"
+              value={editedStudent.apellido}
+              onChange={handleInputChange}
+              placeholder="Apellido"
+            />{' '}
+            <input
+              type="text"
+              name="carrera"
+              value={editedStudent.carrera}
+              onChange={handleInputChange}
+              placeholder="Carrera"
+            />{' '}
+            <input
+              type="text"
+              name="tema"
+              value={editedStudent.tema}
+              onChange={handleInputChange}
+              placeholder="Tema"
+            />{' '}
+            <input
+              type="date"
+              name="fechaAprobacion"
+              value={editedStudent.fechaAprobacion}
+              onChange={handleInputChange}
+            />{' '}
+            <select
+              name="estado"
+              value={editedStudent.estado}
+              onChange={handleInputChange}
+            >
+              <option value="Activo">Activo</option>
+              <option value="Graduado">Graduado</option>
+              <option value="Retirado">Retirado</option>
+            </select>{' '}
+            <input
+              type="text"
+              name="observacion"
+              value={editedStudent.observacion}
+              onChange={handleInputChange}
+              placeholder="Observaciones"
+            />{' '}
+            <button className="btn btn-success" onClick={handleGuardarCambios}>
+              Guardar
+            </button>
+          </Card.Body>
+        )}
       </Card.Body>
     </Card>
   );
