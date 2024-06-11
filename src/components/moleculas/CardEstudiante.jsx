@@ -26,8 +26,8 @@ function CardEstudiante({ student }) {  // Recibir el estudiante como prop
 
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+        <Card.Link href="#">Editar</Card.Link>
+        <Card.Link href="#">Eliminar</Card.Link>
       </Card.Body>
     </Card>
   );

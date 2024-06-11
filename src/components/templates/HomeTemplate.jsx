@@ -18,7 +18,9 @@ export function HomeTemplate({ data }) {
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
-      .ilike('nombre', `%${value}%`); // Busca coincidencias en el nombre
+      .ilike('nombre', `%${value}%`);
+       // Busca coincidencias en el nombre
+       
     
     if (error) {
       console.error('Error buscando estudiantes:', error);
