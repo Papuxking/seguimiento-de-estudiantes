@@ -132,7 +132,7 @@ const FormEstudiante = () => {
           valuePropName="fileList"
           getValueFromEvent={normFile}
         >
-          <Upload
+          {/* <Upload
             listType="picture-card"
             beforeUpload={() => false}
             onChange={handleFileChange}
@@ -143,7 +143,7 @@ const FormEstudiante = () => {
                 <div style={{ marginTop: 8 }}>Upload</div>
               </div>
             )}
-          </Upload>
+          </Upload> */}
         </Form.Item>
 
         <Form.Item style={{ paddingLeft: 30 }}>
