@@ -17,7 +17,7 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
-      .range(data.length, data.length + 9); // Paginación de 10 en 10
+      //.range(data.length, data.length + 9); 
 
     if (error) {
       console.error('Error fetching estudiantes:', error);
