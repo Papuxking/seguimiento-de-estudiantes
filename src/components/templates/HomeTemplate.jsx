@@ -56,6 +56,8 @@ export function HomeTemplate() {
     }
   };
 
+
+
   return (
     <Container>
       <Section1 style={{ display: 'flex', justifyContent: 'center', height: 'fit-content' }}>
