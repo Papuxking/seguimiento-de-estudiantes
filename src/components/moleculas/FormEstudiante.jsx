@@ -127,12 +127,12 @@ const FormEstudiante = () => {
           <TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           label="Foto"
           valuePropName="fileList"
           getValueFromEvent={normFile}
         >
-          {/* <Upload
+          <Upload
             listType="picture-card"
             beforeUpload={() => false}
             onChange={handleFileChange}
@@ -143,8 +143,8 @@ const FormEstudiante = () => {
                 <div style={{ marginTop: 8 }}>Upload</div>
               </div>
             )}
-          </Upload> */}
-        </Form.Item>
+          </Upload>
+        </Form.Item> */}
 
         <Form.Item style={{ paddingLeft: 30 }}>
           <Button type="primary" htmlType="submit">Agregar</Button>

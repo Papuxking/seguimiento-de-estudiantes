@@ -73,7 +73,7 @@ const ListEstudiantes = ({ onSelectStudent, data: filteredData }) => {
           renderItem={(item) => (
             <List.Item key={item.id_estudiante}>
               <List.Item.Meta
-                avatar={<Avatar src={item.foto ? item.foto.url : 'https://via.placeholder.com/40'} />}
+                avatar={<Avatar src={item.foto ? item.foto.url : 'https://img.icons8.com/external-kmg-design-flat-kmg-design/32/external-student-avatar-kmg-design-flat-kmg-design.png'} />}
                 title={<a>{item.nombre} {item.apellido}</a>}
                 description={`${item.carrera} - ${item.tema}`}
               />

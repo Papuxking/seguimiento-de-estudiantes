@@ -8,6 +8,8 @@ function CardEstudiante({ student }) {  // Recibir el estudiante como prop
   }
 
   return (
+
+    
     <Card style={{ width: '15rem', display: 'flex', alignItems: 'center'}}>
       <Card.Body style={{flex: 'initial'}}>
         <Card.Title>{student.nombre} {student.apellido}</Card.Title>
@@ -26,9 +28,21 @@ function CardEstudiante({ student }) {  // Recibir el estudiante como prop
 
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Editar</Card.Link>
-        <Card.Link href="#">Eliminar</Card.Link>
-      </Card.Body>
+  <input
+    className="btn btn-primary"
+    type="button"
+    value="Editar"
+    
+  />
+  <a style={{paddingLeft:"15px", paddingRight:"15px"}}></a>
+  <input
+    className="btn btn-danger"
+    type="button"
+    value="Eliminar"
+    
+  />
+</Card.Body>
+
     </Card>
   );
 }
