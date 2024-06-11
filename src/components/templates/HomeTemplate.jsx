@@ -102,7 +102,7 @@ const Container = styled.div`
 `;
 
 const Section = styled.div`
-  border: 2px solid #00f;
+  border: 2px solid #;
 `;
 
 const Section1 = styled(Section)`
