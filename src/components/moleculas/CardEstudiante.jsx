@@ -47,6 +47,11 @@ function CardEstudiante({ student, onDeleteSuccess }) {
     }
   };
 
+  const handleCancelarEdicion = () => {
+    setEditMode(false);
+    setEditedStudent({});
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedStudent({
@@ -139,6 +144,9 @@ function CardEstudiante({ student, onDeleteSuccess }) {
             />{' '}
             <button className="btn btn-success" onClick={handleGuardarCambios}>
               Guardar
+            </button>
+            <button className="btn btn-secondary" onClick={handleCancelarEdicion}>
+              Cancelar
             </button>
           </Card.Body>
         )}
