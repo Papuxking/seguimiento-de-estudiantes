@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Estudiantes from "../../supabase/Estudiantes";
 
 import Grid from "../moleculas/grid.jsx";
-import GridReporte from "../moleculas/gridReporte.jsx";
+import GridReporte from "../moleculas/modal.jsx";
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -34,6 +34,8 @@ export function ReportesTemplate() {
           </Modal.Footer>
         </Modal.Dialog>
       </div>
+
+
       <div
         className="modal show"
         style={{ display: 'block', position: 'initial' }}
