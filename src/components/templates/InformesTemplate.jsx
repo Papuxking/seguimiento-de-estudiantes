@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TablaProgreso from '../moleculas/tablaProgreso';
 import Modal from 'react-bootstrap/Modal';
+import DropPDF from '../moleculas/dropPDF';
 
 export function InformesTemplate() {
   return (
@@ -39,13 +40,15 @@ export function InformesTemplate() {
               <h1>Lista de informes</h1>
             </div>
             <div>
-              <TablaProgreso />
+            <DropPDF />
             </div>
           </Modal.Body>
           <Modal.Footer>
           </Modal.Footer>
         </Modal.Dialog>
       </div>
+
+      
 
 
     </Container>

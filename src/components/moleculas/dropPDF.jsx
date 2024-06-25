@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'eact';
+import React, { useState, useRef } from 'react';
 
-const App = () => {
+const DropPDF = () => {
   const [files, setFiles] = useState([]);
   const dragRef = useRef(null);
 
@@ -29,7 +29,7 @@ const App = () => {
       onDrop={handleDrop}
       style={{
         width: '100%',
-        height: '100vh',
+        height: '60vh',
         border: '1px solid #ccc',
         borderRadius: '5px',
         padding: '20px',
@@ -45,10 +45,10 @@ const App = () => {
           ))}
         </ul>
       ) : (
-        <p>Drag and drop a PDF file here</p>
+        <p>Arrastra el PDF aquí</p>
       )}
     </div>
   );
 };
 
-export default App;
+export default DropPDF;
