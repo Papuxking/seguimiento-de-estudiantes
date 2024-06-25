@@ -8,23 +8,28 @@ const styles = StyleSheet.create({
   page: {
     padding: 40,
     fontSize: 10,
+    lineHeight: 1.5,
   },
   header: {
     textAlign: 'center',
     marginBottom: 20,
     fontWeight: 'bold',
+    lineHeight: 1.5,
   },
   subHeader: {
     textAlign: 'center',
     marginBottom: 10,
+    lineHeight: 1.5,
   },
   section: {
     marginBottom: 10,
+    lineHeight: 1.5,
   },
   table: {
     display: 'table',
     width: 'auto',
     margin: '10px 0',
+    lineHeight: 1.5,
   },
   tableRow: {
     flexDirection: 'row',
@@ -37,6 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     textAlign: 'center',
     padding: 5,
+    lineHeight: 1.5,
   },
   tableColHeaderActividad: {
     width: '75%',
@@ -46,6 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     textAlign: 'center',
     padding: 5,
+    lineHeight: 1.5,
   },
   tableCol: {
     width: '25%',
@@ -54,6 +61,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     textAlign: 'center',
     padding: 5,
+    lineHeight: 1.5,
   },
   tableColActiviti: {
     width: '75%',
@@ -66,6 +74,16 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: 'bold',
   },
+  title: {
+    fontWeight: 'heavy',
+    fontSize: 12,
+  },
+
+  signatureSection: {
+    marginTop: 20,
+    textAlign: 'center', // Centra el contenido del contenedor
+  },
+
 });
 
 const InformeDocument = () => (
@@ -86,8 +104,10 @@ const InformeDocument = () => (
         <Text><Text style={styles.bold}>MODALIDAD DE TITULACIÓN:</Text> PROYECTO DE INVESTIGACIÓN</Text>
         <Text><Text style={styles.bold}>TEMA DEL TRABAJO DE TITULACIÓN:</Text> “APLICACIÓN MÓVIL USANDO TECNOLOGÍAS MULTIPLAFORMA PARA LA DIFUSIÓN Y BÚSQUEDA DE ARRIENDOS UNIVERSITARIOS EN LOS ALREDEDORES DE LA UNIVERSIDAD TÉCNICA DE AMBATO CAMPUS HUACHI”</Text>
         <Text><Text style={styles.bold}>FECHA DE APROBACIÓN DE LA PROPUESTA DEL PERFIL DEL TRABAJO DE TITULACIÓN POR EL CONSEJO DIRECTIVO:</Text> 17/03/2023</Text>
+        <Text><Text style={styles.bold}></Text> </Text>
         <Text><Text style={styles.bold}>PORCENTAJE DE AVANCE DE ACUERDO AL CRONOGRAMA:</Text> 100 %</Text>
       </View>
+
       <View style={styles.table}>
         <View style={styles.tableRow}>
           <Text style={styles.tableColHeader}>Fecha</Text>
@@ -109,7 +129,10 @@ const InformeDocument = () => (
           </View>
         ))}
       </View>
-      <View style={styles.section}>
+      <View style={styles.signatureSection}>
+      <Text> </Text>
+      <Text> </Text>
+        <Text>_______________________________________</Text>
         <Text>ING. MG. HERNÁN FABRICIO NARANJO ÁVALOS</Text>
         <Text>TUTOR TRABAJO TITULACIÓN</Text>
       </View>
@@ -135,8 +158,7 @@ function StaticExample() {
         </Modal.Body>
 
         <Modal.Footer>
-          {/* <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save changes</Button> */}
+         
         </Modal.Footer>
       </Modal.Dialog>
     </div>
