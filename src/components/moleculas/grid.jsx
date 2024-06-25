@@ -3,12 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import Modal from 'react-bootstrap/Modal';
-import { PDFViewer } from '@react-pdf/renderer';
-import InformeDocument from './modalReporte';
+
 
 function GridComplexExample() {
-  const [showPDF, setShowPDF] = useState(false);
   const [formData, setFormData] = useState({
     fecha: '',
     nombreEstudiante: '',
@@ -110,19 +107,7 @@ function GridComplexExample() {
 
         <Button variant="primary" type="submit">Generar PDF</Button>
       </Form>
-
-      {showPDF && (
-        <Modal show={showPDF} onHide={() => setShowPDF(false)} size="lg">
-          <Modal.Header closeButton>
-            <Modal.Title>Reporte</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <PDFViewer style={{ width: '100%', height: '90vh' }}>
-              <InformeDocument {...formData} />
-            </PDFViewer>
-          </Modal.Body>
-        </Modal>
-      )}
+      
     </div>
   );
 }
