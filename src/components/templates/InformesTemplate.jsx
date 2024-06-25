@@ -1,23 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardDatosEmpresa } from '../../index.js';
-import FormEstudiante from '../moleculas/FormEstudiante.jsx';
+import TablaProgreso from '../moleculas/tablaProgreso';
+import Modal from 'react-bootstrap/Modal';
 
 export function InformesTemplate() {
   return (
     <Container>
-      <h1>Informes template</h1>
-      <CardDatosEmpresa>
-        {/* Aquí puedes agregar contenido dentro de CardDatosEmpresa si es necesario */}
-      </CardDatosEmpresa>
-      {/* <FormEstudiante /> */}
+
+      <div
+        className="modal show"
+        style={{ display: 'block', position: 'initial', width: '75%' }}
+      >
+        <Modal.Dialog>
+          <Modal.Header >
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+              <h1>Lista de informes</h1>
+            </div>
+            <div>
+              <TablaProgreso />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </div>
+
+      <div
+        className="modal show"
+        style={{ display: 'block', position: 'initial', width: '75%' }}
+      >
+        <Modal.Dialog>
+          <Modal.Header >
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+              <h1>Lista de informes</h1>
+            </div>
+            <div>
+              <TablaProgreso />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </div>
+
+
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column; /* Asegúrate de que los componentes se apilen verticalmente */
   justify-content: center;
   align-items: center;
   height: 100vh;
