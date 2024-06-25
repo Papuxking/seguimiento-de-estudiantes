@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-function GridComplexExample({ formData, handleChange, handleActivityChange, addActivity, handleSubmit }) {
+function GridComplexExample({ formData, handleChange, handleActivityChange, addActivity, removeActivity, handleSubmit }) {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
@@ -51,6 +51,9 @@ function GridComplexExample({ formData, handleChange, handleActivityChange, addA
               <Form.Label>Actividad</Form.Label>
               <Form.Control type="text" name="actividad" value={activity.actividad} onChange={(e) => handleActivityChange(index, e)} />
             </Form.Group>
+            <Col xs="auto" style={{paddingTop: '6.5%'}}>
+              <Button  variant="danger" onClick={() => removeActivity(index)}>Eliminar</Button>
+            </Col>
           </Row>
         ))}
 

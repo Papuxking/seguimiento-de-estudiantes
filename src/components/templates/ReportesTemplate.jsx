@@ -6,8 +6,6 @@ import ModalReporte from "../moleculas/modalReporte.jsx";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-// Create styles
-
 export function ReportesTemplate() {
   const [formData, setFormData] = useState({
     fecha: '',
@@ -49,6 +47,15 @@ export function ReportesTemplate() {
     });
   };
 
+  const removeActivity = (index) => {
+    const newActivities = formData.actividades.slice();
+    newActivities.splice(index, 1);
+    setFormData({
+      ...formData,
+      actividades: newActivities,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowPDF(true);
@@ -61,7 +68,7 @@ export function ReportesTemplate() {
         style={{ display: 'block', position: 'initial', width: '75%' }}
       >
         <Modal.Dialog>
-          <Modal.Header closeButton>
+          <Modal.Header >
             <Modal.Title>Datos</Modal.Title>
           </Modal.Header>
 
@@ -71,6 +78,7 @@ export function ReportesTemplate() {
               handleChange={handleChange}
               handleActivityChange={handleActivityChange}
               addActivity={addActivity}
+              removeActivity={removeActivity}
               handleSubmit={handleSubmit}
             />
           </Modal.Body>
