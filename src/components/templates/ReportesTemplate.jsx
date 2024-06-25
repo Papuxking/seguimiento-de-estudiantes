@@ -16,14 +16,14 @@ export function ReportesTemplate() {
     <Container>
       <div
         className="modal show"
-        style={{ display: 'block', position: 'initial' }}
+        style={{ display: 'block', position: 'initial' , width: '75%'}}
       >
-        <Modal.Dialog>
+        <Modal.Dialog >
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Datos</Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>
+          <Modal.Body >
           
 
             <Grid></Grid>
@@ -41,7 +41,7 @@ export function ReportesTemplate() {
 
       <div
         className="modal show"
-        style={{ display: 'block', position: 'initial' }}
+        style={{ display: 'block', position: 'initial'}}
       >
 
 
