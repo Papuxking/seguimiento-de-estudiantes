@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 
-function BasicExample() {
+function TablaProgreso({ files }) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -12,39 +12,17 @@ function BasicExample() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        {files.map((file, index) => (
+          <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{file.name}</td>
+            <td>10%</td>
+            <td><a href={URL.createObjectURL(file)} target="_blank" rel="noopener noreferrer">Ver PDF</a></td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );
 }
 
-export default BasicExample;
+export default TablaProgreso;

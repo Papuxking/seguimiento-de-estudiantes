@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import TablaProgreso from '../moleculas/tablaProgreso';
 import Modal from 'react-bootstrap/Modal';
 import DropPDF from '../moleculas/dropPDF';
 
 export function InformesTemplate() {
+  const [files, setFiles] = useState([]);
+
+  const handleFileDrop = (file) => {
+    setFiles([...files, file]);
+  };
+
   return (
     <Container>
-
       <div
         className="modal show"
         style={{ display: 'block', position: 'initial', width: '75%' }}
       >
         <Modal.Dialog>
-          <Modal.Header >
-          </Modal.Header>
+          <Modal.Header />
           <Modal.Body>
             <div>
               <h1>Lista de informes</h1>
             </div>
             <div>
-              <TablaProgreso />
+              <TablaProgreso files={files} />
             </div>
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
+          <Modal.Footer />
         </Modal.Dialog>
       </div>
 
@@ -33,24 +36,18 @@ export function InformesTemplate() {
         style={{ display: 'block', position: 'initial', width: '75%' }}
       >
         <Modal.Dialog>
-          <Modal.Header >
-          </Modal.Header>
+          <Modal.Header />
           <Modal.Body>
             <div>
-              <h1>Lista de informes</h1>
+              <h1>Subir informe</h1>
             </div>
             <div>
-            <DropPDF />
+              <DropPDF onFileDrop={handleFileDrop} />
             </div>
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
+          <Modal.Footer />
         </Modal.Dialog>
       </div>
-
-      
-
-
     </Container>
   );
 }
