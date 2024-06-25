@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Estudiantes from "../../supabase/Estudiantes";
 
+import Grid from "../moleculas/grid.jsx";
+import GridReporte from "../moleculas/gridReporte.jsx";
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -8,31 +11,45 @@ import Modal from 'react-bootstrap/Modal';
 export function ReportesTemplate() {
   return (
     <Container>
-    <div
-    className="modal show"
-    style={{ display: 'block', position: 'initial' }}
-  >
-    <Modal.Dialog>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal title</Modal.Title>
-      </Modal.Header>
+      <div
+        className="modal show"
+        style={{ display: 'block', position: 'initial' }}
+      >
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
 
-      <Modal.Body>
-        <p>Modal body text goes here.</p>
-      </Modal.Body>
+          <Modal.Body>
+            <p>Modal body text goes here.</p>
 
-      <Modal.Footer>
-        <Button variant="secondary">Close</Button>
-        <Button variant="primary">Save changes</Button>
-      </Modal.Footer>
-    </Modal.Dialog>
-  </div>
-  
-  </Container>
+            <Grid></Grid>
 
-  
 
-)
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button variant="secondary">Close</Button>
+            <Button variant="primary">Save changes</Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </div>
+      <div
+        className="modal show"
+        style={{ display: 'block', position: 'initial' }}
+      >
+
+        <GridReporte></GridReporte>
+      </div>
+
+
+
+
+    </Container>
+
+
+
+  )
 }
 const Container = styled.div`
   display: flex;
