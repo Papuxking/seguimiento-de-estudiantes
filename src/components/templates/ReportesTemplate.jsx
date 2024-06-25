@@ -2,11 +2,14 @@ import styled from "styled-components";
 import Estudiantes from "../../supabase/Estudiantes";
 
 import Grid from "../moleculas/grid.jsx";
-import GridReporte from "../moleculas/modal.jsx";
+import ModalReporte from "../moleculas/modalReporte.jsx";
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+
+
+// Create styles
 
 export function ReportesTemplate() {
   return (
@@ -21,7 +24,7 @@ export function ReportesTemplate() {
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
+          
 
             <Grid></Grid>
 
@@ -41,7 +44,10 @@ export function ReportesTemplate() {
         style={{ display: 'block', position: 'initial' }}
       >
 
-        <GridReporte></GridReporte>
+
+            <ModalReporte></ModalReporte>
+        
+
       </div>
 
 
