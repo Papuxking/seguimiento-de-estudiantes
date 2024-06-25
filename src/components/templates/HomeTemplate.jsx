@@ -15,7 +15,9 @@ export function HomeTemplate() {
     const fetchStudents = async () => {
       const { data: estudiantes, error } = await supabase
         .from('Estudiantes')
-        .select('*');
+        .select('*')
+        .eq('estado', 'Activo');  // Filtra estudiantes activos
+
 
       if (error) {
         console.error('Error fetching estudiantes:', error);
@@ -36,6 +38,7 @@ export function HomeTemplate() {
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
+      .eq('estado', 'Activo')
       .or(`nombre.ilike.%${value}%,apellido.ilike.%${value}%,carrera.ilike.%${value}%,tema.ilike.%${value}%,observacion.ilike.%${value}%`);
     
     if (error) {
@@ -73,7 +76,7 @@ export function HomeTemplate() {
         <h1>Buscar Estudiantes</h1>
         <Buscar onSearch={handleSearch} />
       </Section2>
-
+      
       <Section3 style={{ height: 'fit-content' }}>
         <h1>Agregar Estudiante</h1>
         <FormEstudiante onStudentAdded={handleStudentAdded} />

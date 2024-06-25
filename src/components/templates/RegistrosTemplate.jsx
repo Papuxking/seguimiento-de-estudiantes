@@ -36,7 +36,7 @@ export function RegistrosTemplate() {
     const { data: estudiantes, error } = await supabase
       .from('Estudiantes')
       .select('*')
-      .or(`nombre.ilike.%${value}%,apellido.ilike.%${value}%,carrera.ilike.%${value}%,tema.ilike.%${value}%,observacion.ilike.%${value}%`);
+      .or(`nombre.ilike.%${value}%,apellido.ilike.%${value}%,carrera.ilike.%${value}%,tema.ilike.%${value}%,estado.ilike.%${value}%,observacion.ilike.%${value}%`);
     
     if (error) {
       console.error('Error buscando estudiantes:', error);
