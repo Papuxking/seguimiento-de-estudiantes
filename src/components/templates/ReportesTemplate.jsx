@@ -16,7 +16,7 @@ export function ReportesTemplate() {
     <Container>
       <div
         className="modal show"
-        style={{ display: 'block', position: 'initial' , width: '75%'}}
+        style={{ display: 'block', position: 'initial', width: '75%' }}
       >
         <Modal.Dialog >
           <Modal.Header closeButton>
@@ -24,11 +24,7 @@ export function ReportesTemplate() {
           </Modal.Header>
 
           <Modal.Body >
-          
-
             <Grid></Grid>
-
-
           </Modal.Body>
 
           <Modal.Footer>
@@ -41,18 +37,10 @@ export function ReportesTemplate() {
 
       <div
         className="modal show"
-        style={{ display: 'block', position: 'initial'}}
+        style={{ display: 'block', position: 'initial' }}
       >
-
-
-            <ModalReporte></ModalReporte>
-        
-
+        <ModalReporte></ModalReporte>
       </div>
-
-
-
-
     </Container>
 
 
