@@ -2,7 +2,6 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, PDFViewer } from '@react-pdf/renderer';
 import Modal from 'react-bootstrap/Modal';
 
-// Define styles
 const styles = StyleSheet.create({
   page: {
     padding: 40,
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   },
   signatureSection: {
     marginTop: 20,
-    textAlign: 'center', // Centra el contenido del contenedor
+    textAlign: 'center',
   },
 });
 
@@ -136,28 +135,7 @@ const InformeDocument = ({
   </Document>
 );
 
-const StaticExample = () => {
-  // Data for the document
-  const data = {
-    fecha: "18/07/2023",
-    nombreEstudiante: "DANIELA ESTEFANÍA GARCÍA CHERRES",
-    modalidad: "PROYECTO DE INVESTIGACIÓN",
-    tema: "“APLICACIÓN MÓVIL USANDO TECNOLOGÍAS MULTIPLAFORMA PARA LA DIFUSIÓN Y BÚSQUEDA DE ARRIENDOS UNIVERSITARIOS EN LOS ALREDEDORES DE LA UNIVERSIDAD TÉCNICA DE AMBATO CAMPUS HUACHI”",
-    fechaAprobacion: "17/03/2023",
-    porcentajeAvance: "100 %",
-    actividades: [
-      { fecha: "01-07-2023", actividad: "Implementación de la función de geolocalización." },
-      { fecha: "03-07-2023", actividad: "Implementación de la función comentarios" },
-      { fecha: "05-07-2023", actividad: "Implementación del mapa en la aplicación móvil usando la API de Google Maps." },
-      { fecha: "10-07-2023", actividad: "Elaboración de la Fase 4: estabilización y Fase 5: pruebas de funcionalidad" },
-      { fecha: "12-07-2023", actividad: "Redacción de las conclusiones y recomendaciones." },
-      { fecha: "14-07-2023", actividad: "Redacción del resumen ejecutivo y abstract." },
-      { fecha: "14-07-2023", actividad: "Elaboración de las diapositivas para la defensa del proyecto." },
-      { fecha: "16-07-2023", actividad: "Correcciones de las conclusiones y recomendaciones" },
-    ],
-    tutor: "ING. MG. HERNÁN FABRICIO NARANJO ÁVALOS",
-  };
-
+const ModalReporte = (props) => {
   return (
     <div
       className="modal show"
@@ -170,7 +148,7 @@ const StaticExample = () => {
 
         <Modal.Body>
           <PDFViewer style={{ width: "100%", height: "90vh" }}>
-            <InformeDocument {...data} />
+            <InformeDocument {...props} />
           </PDFViewer>
         </Modal.Body>
 
@@ -181,4 +159,4 @@ const StaticExample = () => {
   );
 };
 
-export default StaticExample;
+export default ModalReporte;

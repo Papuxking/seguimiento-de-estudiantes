@@ -1,54 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-
-function GridComplexExample() {
-  const [formData, setFormData] = useState({
-    fecha: '',
-    nombreEstudiante: '',
-    modalidad: '',
-    tema: '',
-    fechaAprobacion: '',
-    porcentajeAvance: '',
-    actividades: [
-      { fecha: '', actividad: '' },
-    ],
-    tutor: '',
-  });
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({
-      ...formData,
-      [id]: value,
-    });
-  };
-
-  const handleActivityChange = (index, e) => {
-    const { name, value } = e.target;
-    const newActivities = formData.actividades.slice();
-    newActivities[index][name] = value;
-    setFormData({
-      ...formData,
-      actividades: newActivities,
-    });
-  };
-
-  const addActivity = () => {
-    setFormData({
-      ...formData,
-      actividades: [...formData.actividades, { fecha: '', actividad: '' }],
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowPDF(true);
-  };
-
+function GridComplexExample({ formData, handleChange, handleActivityChange, addActivity, handleSubmit }) {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
@@ -107,7 +63,6 @@ function GridComplexExample() {
 
         <Button variant="primary" type="submit">Generar PDF</Button>
       </Form>
-      
     </div>
   );
 }
