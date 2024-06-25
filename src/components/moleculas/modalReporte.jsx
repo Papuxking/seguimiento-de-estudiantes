@@ -38,8 +38,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
   },
+  tableColHeaderActividad: {
+    width: '75%',
+    borderStyle: 'solid',
+    borderColor: '#000',
+    borderWidth: 1,
+    backgroundColor: '#f0f0f0',
+    textAlign: 'center',
+    padding: 5,
+  },
   tableCol: {
     width: '25%',
+    borderStyle: 'solid',
+    borderColor: '#000',
+    borderWidth: 1,
+    textAlign: 'center',
+    padding: 5,
+  },
+  tableColActiviti: {
+    width: '75%',
     borderStyle: 'solid',
     borderColor: '#000',
     borderWidth: 1,
@@ -74,7 +91,7 @@ const InformeDocument = () => (
       <View style={styles.table}>
         <View style={styles.tableRow}>
           <Text style={styles.tableColHeader}>Fecha</Text>
-          <Text style={styles.tableColHeader}>Actividad</Text>
+          <Text style={styles.tableColHeaderActividad}>Actividad</Text>
         </View>
         {[
           ['01-07-2023', 'Implementación de la función de geolocalización.'],
@@ -88,7 +105,7 @@ const InformeDocument = () => (
         ].map(([date, activity], index) => (
           <View style={styles.tableRow} key={index}>
             <Text style={styles.tableCol}>{date}</Text>
-            <Text style={styles.tableCol}>{activity}</Text>
+            <Text style={styles.tableColActiviti}>{activity}</Text>
           </View>
         ))}
       </View>
